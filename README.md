@@ -15,7 +15,7 @@ Don't use it for anything stupid.
 
 ### Examples
 
-# Price
+#### Price
 
 Run `node scripts/price.js` to read the a current pair price. It should output something like:
 
@@ -31,3 +31,25 @@ Run `node scripts/price.js` to read the a current pair price. It should output s
 
 Note that the output is just the pair ratio and thus an approximation of how much a buy/sell
 would get since that depends on the liquidity and your own impact on that liquidity.
+
+#### Configuring a wallet
+
+Edit `private/keys.js` and add a single `module.exports = "your private key"`
+
+#### Liquidate
+
+See `scripts/liquidate.js` for a way to fully liquidate a given token into the main utility token.
+
+Note that `liquidate` will read the balance and sell everything. There is also a `sell` function.
+
+#### Buy
+
+See `scripts/buy.js` for a way to sell some utility token and get some other tokens.
+
+Note that `buy` does not use a path or a non-utility token pair.
+
+#### Price, buy, sell
+
+With these building blocks it looks like we could do something more interesting.
+
+What would a stop loss be? Just a pooling of the price followed by a conditional liquidate or sell.
